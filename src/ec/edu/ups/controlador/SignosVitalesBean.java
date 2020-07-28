@@ -32,6 +32,14 @@ public class SignosVitalesBean implements Serializable {
 		listSignosVitales = signosVitalesFacade.findAll();
 	}
 
+	public List<SignosVitales> getListSignosVitales() {
+		return listSignosVitales;
+	}
+
+	public void setListSignosVitales(List<SignosVitales> listSignosVitales) {
+		this.listSignosVitales = listSignosVitales;
+	}
+
 	public SignosVitalesFacade getSignosVitalesFacade() {
 		return signosVitalesFacade;
 	}
