@@ -89,6 +89,19 @@
 			<li>Fecha y hora:<h:inputText size="10"
 					value="#{citaMedicaBean.fechaHora}" /></li>
 
+			<li>Paciente:<br></br> <h:selectOneMenu
+					value="#{citaMedicaBean.paciente}" class="form-control">
+					<f:selectItems value="#{pacienteBean.nombres}" class="form-control" />
+				</h:selectOneMenu>
+			</li>
+
+			<li>Signos Vitales:<br></br> <h:selectOneMenu
+					value="#{citaMedicaBean.signosVitales}" class="form-control">
+					<f:selectItems value="#{signosVitalesBean.tipo}"
+						class="form-control" />
+				</h:selectOneMenu>
+			</li>
+
 			<li>Signos Vitales:<h:inputText size="10"
 					value="#{citaMedicaBean.signosVitalesFacade}" /></li>
 
@@ -97,7 +110,7 @@
 
 			<li>Alergias:<h:inputText size="10"
 					value="#{citaMedicaBean.alegrias}" /></li>
-					
+
 
 		</ul>
 

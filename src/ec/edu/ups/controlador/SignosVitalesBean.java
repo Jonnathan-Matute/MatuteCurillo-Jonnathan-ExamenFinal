@@ -23,6 +23,7 @@ public class SignosVitalesBean implements Serializable {
 	private SignosVitalesFacade signosVitalesFacade;
 	private List<SignosVitales> listSignosVitales;
 	private String tipo;
+	private SignosVitales signosVitales;
 
 	public SignosVitalesBean() {
 	}
@@ -30,6 +31,14 @@ public class SignosVitalesBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		listSignosVitales = signosVitalesFacade.findAll();
+	}
+
+	public SignosVitales getSignosVitales() {
+		return signosVitales;
+	}
+
+	public void setSignosVitales(SignosVitales signosVitales) {
+		this.signosVitales = signosVitales;
 	}
 
 	public List<SignosVitales> getListSignosVitales() {

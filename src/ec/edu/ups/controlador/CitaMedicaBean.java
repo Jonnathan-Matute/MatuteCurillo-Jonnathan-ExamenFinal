@@ -56,6 +56,22 @@ public class CitaMedicaBean implements Serializable {
 		return citaMedicaFacade;
 	}
 
+	public String getSignosVitales2() {
+		return signosVitales2;
+	}
+
+	public void setSignosVitales2(String signosVitales2) {
+		this.signosVitales2 = signosVitales2;
+	}
+
+	public SignosVitales getSignosVitales() {
+		return signosVitales;
+	}
+
+	public void setSignosVitales(SignosVitales signosVitales) {
+		this.signosVitales = signosVitales;
+	}
+
 	public void setCitaMedicaFacade(CitaMedicaFacade citaMedicaFacade) {
 		this.citaMedicaFacade = citaMedicaFacade;
 	}
