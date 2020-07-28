@@ -33,46 +33,48 @@
 <h:body>
 	<h3>Gestión de categorias</h3>
 	<h:form>
-		<h:dataTable value="#{citaMedicaBean.list}" var="c" styleClass="tabla"
-			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+		<h:dataTable value="#{citaMedicaBean.listCitaMedica}" var="c"
+			styleClass="tabla" headerClass="cabeceraTabla"
+			rowClasses="filaPar,filaImpar">
 			<h:column>
 				<f:facet name="header">Codigo</f:facet>#{c.codigo}
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Fechay hora</f:facet>
 				<h:inputText value="#{c.fechaHora}" size="10"
 					rendered="#{c.editable}" />
 				<h:outputText value="#{c.fechaHora}" rendered="#{not c.editable}" />
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Signos vitales</f:facet>
 				<h:inputText value="#{c.signosVitales}" size="10"
 					rendered="#{c.editable}" />
-				<h:outputText value="#{c.signosVitales}" rendered="#{not c.editable}" />
+				<h:outputText value="#{c.signosVitales}"
+					rendered="#{not c.editable}" />
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Sintomas</f:facet>
 				<h:inputText value="#{c.sintomas}" size="10"
 					rendered="#{c.editable}" />
 				<h:outputText value="#{c.sintomas}" rendered="#{not c.editable}" />
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Alergias</f:facet>
 				<h:inputText value="#{c.alegrias}" size="10"
 					rendered="#{c.editable}" />
 				<h:outputText value="#{c.alegrias}" rendered="#{not c.editable}" />
 			</h:column>
-			
-			
+
+
 			<h:column>
 				<f:facet name="header">Accion</f:facet>
 				<h:commandLink value="Delete" action="#{citaMedicaBean.delete(c)}" />
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Accion</f:facet>
 				<h:commandLink value="Edit" action="#{citaMedicaBean.edit(c)}"
@@ -80,14 +82,25 @@
 				<h:commandLink value="Save" action="#{citaMedicaBean.save(c)}"
 					rendered="#{c.editable}" />
 			</h:column>
-			
+
 		</h:dataTable>
-		
+
 		<ul>
-			<li>Cita:<h:inputText size="10"
+			<li>Fecha y hora:<h:inputText size="10"
 					value="#{citaMedicaBean.fechaHora}" /></li>
+
+			<li>Signos Vitales:<h:inputText size="10"
+					value="#{citaMedicaBean.signosVitalesFacade}" /></li>
+
+			<li>Sintomas:<h:inputText size="10"
+					value="#{citaMedicaBean.sintomas}" /></li>
+
+			<li>Alergias:<h:inputText size="10"
+					value="#{citaMedicaBean.alegrias}" /></li>
+					
+
 		</ul>
-		
+
 		<h:commandButton value="Add" action="#{citaMedicaBean.add}" />
 	</h:form>
 </h:body>
