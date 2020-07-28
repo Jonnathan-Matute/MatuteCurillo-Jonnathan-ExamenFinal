@@ -36,41 +36,29 @@ public class CitaMedicaBean implements Serializable {
 	private String sintomas;
 	private String alegrias;
 	private String enfermedadesPrevias;
-	private String signosVitales2;
+	private String signosVitales;
 	private List<CitaMedica> listCitaMedica;
 
 	private CitaMedica citaMedica;
-	private SignosVitales signosVitales;
 
-	private Paciente paciente;
-	private String paciente2;
+	private String paciente;
 
 	@PostConstruct
 	public void init() {
 		this.citaMedica = new CitaMedica();
 		listCitaMedica = citaMedicaFacade.findAll();
-		this.listCitaMedica = new ArrayList<>();
+		new ArrayList<>();
 	}
 
 	public CitaMedicaFacade getCitaMedicaFacade() {
 		return citaMedicaFacade;
 	}
 
-	public String getSignosVitales2() {
-		return signosVitales2;
-	}
 
-	public void setSignosVitales2(String signosVitales2) {
-		this.signosVitales2 = signosVitales2;
-	}
-
-	public SignosVitales getSignosVitales() {
-		return signosVitales;
-	}
-
-	public void setSignosVitales(SignosVitales signosVitales) {
+	public void setSignosVitales(String signosVitales) {
 		this.signosVitales = signosVitales;
 	}
+
 
 	public void setCitaMedicaFacade(CitaMedicaFacade citaMedicaFacade) {
 		this.citaMedicaFacade = citaMedicaFacade;
@@ -100,20 +88,12 @@ public class CitaMedicaBean implements Serializable {
 		this.signosVitalesFacade = signosVitalesFacade;
 	}
 
-	public Paciente getPaciente() {
+	public String getPaciente() {
 		return paciente;
 	}
 
-	public void setPaciente(Paciente paciente) {
+	public void setPaciente(String paciente) {
 		this.paciente = paciente;
-	}
-
-	public String getPaciente2() {
-		return paciente2;
-	}
-
-	public void setPaciente2(String paciente2) {
-		this.paciente2 = paciente2;
 	}
 
 	public String getSintomas() {
@@ -126,6 +106,10 @@ public class CitaMedicaBean implements Serializable {
 
 	public String getAlegrias() {
 		return alegrias;
+	}
+
+	public String getSignosVitales() {
+		return signosVitales;
 	}
 
 	public void setAlegrias(String alegrias) {
@@ -164,21 +148,21 @@ public class CitaMedicaBean implements Serializable {
 	}
  
 	private Paciente buscar() {
-		Paciente p = new Paciente();
-		p = pacienteFacade.buscarPaciente(paciente2);
-		System.out.println(p.toString());
-		return p;
+		Paciente ca = new Paciente();
+		ca = citaMedicaFacade.validar(paciente);
+		System.out.println(ca.toString());
+		System.out.println(ca.getCodigo());
+		return ca;
 
 	}
 	
 	private SignosVitales buscarSignosVitales() {
 		SignosVitales sv  = new SignosVitales();
-		sv = signosVitalesFacade.buscarSignosVitales(signosVitales2);
-		System.out.println(sv.toString());
+		sv = signosVitalesFacade.buscarSignosVitales(signosVitales);
+		System.out.println(sv);
 		return sv;
 
 	}
-	
 
 	public String remove(CitaMedica cm) {
 		citaMedicaFacade.remove(cm);

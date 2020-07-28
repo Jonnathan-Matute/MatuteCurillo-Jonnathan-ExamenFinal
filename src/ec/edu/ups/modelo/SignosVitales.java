@@ -84,7 +84,7 @@ public class SignosVitales implements Serializable {
 
 	@Override
 	public String toString() {
-		return "SignosVitales [codigo=" + codigo + ", tipo=" + tipo + ", listSignosVitales=" + listSignosVitales + "]";
+		return tipo;
 	}
   
 }

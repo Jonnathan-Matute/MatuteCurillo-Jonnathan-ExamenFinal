@@ -28,7 +28,7 @@ public class Paciente implements Serializable {
 	@Transient
 	private boolean editable;
 
-	@OneToMany(mappedBy = "paciente")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
 	private Set<CitaMedica> listCitaMedica;
 
 	public Paciente() {
@@ -133,9 +133,7 @@ public class Paciente implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Paciente [codigo=" + codigo + ", cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos
-				+ ", telefono=" + telefono + ", direccion=" + direccion + ", correo=" + correo + ", editable="
-				+ editable + ", listCitaMedica=" + listCitaMedica + "]";
+		return nombres;
 	}
 
 }

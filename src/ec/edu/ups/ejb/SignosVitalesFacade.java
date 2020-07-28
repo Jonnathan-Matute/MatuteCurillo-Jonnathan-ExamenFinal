@@ -3,6 +3,7 @@ package ec.edu.ups.ejb;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import ec.edu.ups.modelo.*;
 
@@ -23,8 +24,13 @@ public class SignosVitalesFacade extends AbstractFacade<SignosVitales> {
 
 	public SignosVitales buscarSignosVitales(String tipo) {
 		SignosVitales sv = new SignosVitales();
-		String sql="SELECT sv FROM SignosVitales sv where sv.nombres='"+tipo+"'";
-		sv = (SignosVitales) em.createQuery(sql).getSingleResult();
+		try {
+		String sql="SELECT sv FROM SignosVitales sv where sv.tipo='"+tipo+"'";
+		Query query = em.createQuery(sql);
+		sv = (SignosVitales) query.getSingleResult();
+		}catch(Exception e) {
+
+		}
 		return sv;
 	}
 

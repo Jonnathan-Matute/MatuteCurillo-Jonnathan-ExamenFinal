@@ -100,30 +100,4 @@ public class PacienteBean implements Serializable {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-
-	public String add() {
-
-		Paciente p = new Paciente(this.cedula, this.nombres, this.apellidos, this.telefono, this.direccion, this.correo);
-		System.out.println(p);
-		pacienteFacade.create(p);
-		listPaciente = pacienteFacade.findAll();
-		return null;
-	}
-
-	public String remove(Paciente p) {
-		pacienteFacade.remove(p);
-		listPaciente = pacienteFacade.findAll();
-		return null;
-	}
-
-	public String edit(Paciente p) {
-		p.setEditable(true);
-		return null;
-	}
-
-	public String save(Paciente p) {
-		pacienteFacade.edit(p);
-		p.setEditable(false);
-		return null;
-	}
 }

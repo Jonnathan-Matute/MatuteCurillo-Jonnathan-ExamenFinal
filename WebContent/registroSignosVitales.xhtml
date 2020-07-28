@@ -47,19 +47,6 @@
 				<h:outputText value="#{c.tipo}" rendered="#{not c.editable}" />
 			</h:column>
 
-			<h:column>
-				<f:facet name="header">Accion</f:facet>
-				<h:commandLink value="Delete" action="#{signosVitalesBean.delete(c)}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Accion</f:facet>
-				<h:commandLink value="Edit" action="#{signosVitalesBean.edit(c)}"
-					rendered="#{not c.editable}" />
-				<h:commandLink value="Save" action="#{signosVitalesBean.save(c)}"
-					rendered="#{c.editable}" />
-			</h:column>
-
 		</h:dataTable>
 
 		<ul>
